@@ -1,0 +1,20 @@
+library ieee;
+use ieee.std_logic_1164.all;
+entity Lab1_NikithReddy_NAND4 is
+	port
+	(
+		A, B, C, D	: IN  Std_Logic;
+		Y	      : out Std_Logic
+	);
+end Lab1_NikithReddy_NAND4;
+architecture Structure of Lab1_NikithReddy_NAND4 is
+
+	SIGNAL w1, w2 : Std_Logic;
+
+begin
+
+	w1 <= A NAND B;
+	w2 <= C NAND D;
+	Y <= not (A and B and C and D);
+
+end Structure;
