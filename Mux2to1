@@ -1,0 +1,21 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity Mux2to1_NikithReddy is
+    Port (
+        a, b, s : in  STD_LOGIC;
+        f       : out STD_LOGIC
+    );
+end Mux2to1_NikithReddy;
+
+architecture Structure of Mux2to1_NikithReddy is
+    signal x1 : STD_LOGIC;
+begin
+    x1 <= NOT s;
+
+    process(a, x1)
+    begin
+        f <= NOT (x1 AND a);
+    end process;
+
+end Structure;
