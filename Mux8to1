@@ -1,0 +1,42 @@
+library ieee;
+use ieee.std_logic_1164.all;
+entity Mux8to1_NikithReddy is
+    Port (
+        a, b, c, d, e, f, g, h, s0, s1, s2 : in  STD_LOGIC;
+        y       : out STD_LOGIC
+    );
+end Mux8to1_NikithReddy;
+architecture Structure of Mux8to1_NikithReddy is
+    signal x1, x2, x3, x4, x5, x6, x7, x8 : STD_LOGIC;
+begin
+    x1 <= a NAND a;
+    x2 <= b NAND b;
+    x3 <= c NAND c;
+    x4 <= d NAND d;
+    x5 <= e NAND e;
+    x6 <= f NAND f;
+    x7 <= g NAND g;
+    x8 <= h NAND h;
+    process (a, b, c, d, e, f, g, h, x1, x2, x3, x4, x5, x6, x7, x8, s0, s1, s2)
+    begin
+        if (s0 = '0' and s1 = '0' and s2 = '0') then
+            y <= x1 NAND x1;
+        elsif (s0 = '0' and s1 = '0' and s2 = '1') then
+            y <= x2 NAND x2;
+        elsif (s0 = '0' and s1 = '1' and s2 = '0') then
+            y <= x3 NAND x3;
+        elsif (s0 = '0' and s1 = '1' and s2 = '1') then
+            y <= x4 NAND x4;
+        elsif (s0 = '1' and s1 = '0' and s2 = '0') then
+            y <= x5 NAND x5;
+        elsif (s0 = '1' and s1 = '0' and s2 = '1') then
+            y <= x6 NAND x6;
+        elsif (s0 = '1' and s1 = '1' and s2 = '0') then
+            y <= x7 NAND x7;
+        elsif (s0 = '1' and s1 = '1' and s2 = '1') then
+            y <= x8 NAND x8;
+        else
+            y <= '0'; 
+        end if;
+    end process;
+end Structure;
